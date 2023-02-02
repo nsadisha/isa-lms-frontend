@@ -1,0 +1,64 @@
+@use 'variables' as v;
+
+body {
+  margin: 0;
+  font-family: -apple-system Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+  background-color: v.$bgColor !important;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+h1,h2,h3,h4,h5,h6 {
+  color: v.$primaryTextColor;
+}
+
+p{
+  color: v.$secondaryTextColor;
+}
+
+a {
+  text-decoration: none;
+  font-weight: 600;
+  color: v.$primaryTextColor;
+}
+
+.gradiant-btn {
+  background: v.$gradiant;
+  font-weight: 600 !important;
+  color: v.$lightTextColor !important;
+}
+
+label {
+  margin-bottom: 0.2rem !important;
+}
+
+.r-50{
+  border-radius: 50px !important;
+  border: none;
+  padding: 0.5rem 1.2rem !important;
+}
+
+.divider{
+  position: relative;
+  height: 2px;
+  background: v.$gradiant;
+}
+
+.divider::before{
+  content: attr(data-text);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: v.$bgColor;
+  padding: 0 10px;
+  color: v.$secondaryTextColor2;
+  font-size: 1rem;
+  vertical-align: middle;
+}
