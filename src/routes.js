@@ -6,15 +6,15 @@ import Register from './views/Register';
 const routes = createBrowserRouter([
     {
       path: "/",
-      element: <Home />,
+      element: <Home title='Home' />,
     },
     {
       path: "/login",
-      element: <Login />,
+      element: <Login title='Login'/>,
     },
     {
       path: "/register",
-      element: <Register />
+      element: <Register title='Register' />
     }
   ]);
 
