@@ -13,7 +13,7 @@ function Login(props) {
     useEffect(() => {document.title = props.title;})
 
     return (
-        <div className="container login">
+        <div className="container login mt-5">
             <div className="row justify-content-center">
                 <div className="col-md-6 col-lg-4">
                     <div>

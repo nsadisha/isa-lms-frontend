@@ -1,0 +1,10 @@
+@use 'variables' as v;
+
+.login {
+    margin-top: 5vw;
+
+    .caption {
+        color: v.$primaryTextColor;
+        text-align: center;
+    }
+}
