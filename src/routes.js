@@ -1,11 +1,12 @@
 import { createBrowserRouter } from 'react-router-dom';
+import Home from './views/Home';
 import Login from './views/Login';
 import Register from './views/Register';
 
 const routes = createBrowserRouter([
     {
       path: "/",
-      element: <h1>Hello from Router</h1>,
+      element: <Home />,
     },
     {
       path: "/login",
