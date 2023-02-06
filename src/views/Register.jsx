@@ -5,7 +5,6 @@ import authService from "../service/AuthService";
 function Register() {
     const navigate = useNavigate();
     let passwordValue = '';
-    let duplicateEmailErrorMsg = 'This email address is already in use!';
     let invalidEmailErrorMsg = 'Please enter a valid email address.';
     const [emailErrMsg, setErrMsg] = useState(invalidEmailErrorMsg)
 
@@ -21,10 +20,10 @@ function Register() {
             console.log(res);
             navigate('/login')
         }).catch(err => {
-            setErrMsg(duplicateEmailErrorMsg)
+            setErrMsg(err.response.data.message)
             e.target.email.classList.remove('is-valid')
             e.target.email.classList.add('is-invalid')
-            console.log(err);
+            console.log(err.response.data);
         })
     }
 
