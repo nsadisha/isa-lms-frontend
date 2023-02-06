@@ -1,23 +1,39 @@
-import { Link } from 'react-router-dom';
-import { useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 import authService from '../service/AuthService';
+import localStorageService from '../service/LocalStorageService';
+
 import '../assets/css/login.scss';
 
-function hadndleLogin(e) {
-    e.preventDefault()
+function Login({title}) {
+    const navigate = useNavigate()
+    const [email, setEmail] = useState('')
 
-    let email = e.target.email.value;
-	let password = e.target.password.value;
+    function hadndleLogin(e) {
+        e.preventDefault()
+    
+        let email = e.target.email.value;
+        let password = e.target.password.value;
 
-    authService.login(email, password).then(data => {
-        console.log(data);
-    }).catch(err => {
-        console.log(err);
-    })
-}
+        authService.login(email, password).then(data => {
+            localStorageService.setToken(data.token);
+            localStorageService.setEmail(data.user.email);
+            localStorageService.setRole(data.user.role);
 
-function Login(props) {
-    useEffect(() => {document.title = props.title;})
+            navigate('/')
+        }).catch(err => {
+            console.log(err.response.data);
+        })
+    }
+
+    useEffect(() => {
+        if(localStorageService.isSigned()){
+            navigate('/')
+        }
+
+        setEmail(localStorageService.getEmail())
+        document.title = title;
+    },[title, navigate]);
 
     return (
         <div className="container login">
@@ -28,7 +44,7 @@ function Login(props) {
                         <form onSubmit={hadndleLogin}>
                             <div className="mb-3">
                                 <label htmlFor="exampleInputEmail1" className="form-label">Email address</label>
-                                <input type="email" className="form-control" id="exampleInputEmail1" name='email' required />
+                                <input type="email" className="form-control" id="exampleInputEmail1" name='email' defaultValue={email} required />
                             </div>
                             <div className="mb-3">
                                 <label htmlFor="exampleInputPassword1" className="form-label">Password</label>
