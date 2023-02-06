@@ -7,12 +7,21 @@ class AuthService {
                 email: _email,
                 password: _password
             }
-        ).then((res) => {
+        ).then(res => {
             return res.data
-        }).catch((err) => {
+        }).catch(err => {
+            throw err
+        })
+    }
+
+    async register(data) {
+        return axios.post('/auth/register', data)
+        .then(res => {
+            return res.data
+        }).catch(err => {
             throw err
         })
     }
 }
-
-export default new AuthService();
+const authService = new AuthService();
+export default authService;
