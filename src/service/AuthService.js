@@ -8,18 +8,27 @@ class AuthService {
                 password: _password
             }
         ).then(res => {
-            return res.data
+            return res.data;
         }).catch(err => {
-            throw err
+            throw err;
         })
     }
 
     async register(data) {
         return axios.post('/auth/register', data)
         .then(res => {
-            return res.data
+            return res.data;
         }).catch(err => {
-            throw err
+            throw err;
+        })
+    }
+
+    async logout() {
+        return axios.post('/auth/logout', {})
+        .then(res => {
+            return res;
+        }).catch(err => {
+            throw err;
         })
     }
 }
