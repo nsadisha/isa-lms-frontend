@@ -17,7 +17,6 @@ function Register() {
             return;
         }
         authService.register(data).then(res => {
-            console.log(res);
             navigate('/login')
         }).catch(err => {
             setErrMsg(err.response.data.message)
