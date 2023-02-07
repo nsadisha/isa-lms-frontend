@@ -2,6 +2,7 @@ import { createBrowserRouter } from 'react-router-dom';
 import Error404 from './views/Error404';
 import Home from './views/Home';
 import Login from './views/Login';
+import Logout from './views/Logout';
 import Register from './views/Register';
 
 const routes = createBrowserRouter([
@@ -16,6 +17,10 @@ const routes = createBrowserRouter([
     {
       path: "/register",
       element: <Register title='Register' />
+    },
+    {
+      path: "/logout",
+      element: <Logout title='Logout' />
     },
     {
       path: "/*",
