@@ -15,7 +15,7 @@ function Logout({ title }) {
         localStorageService.clearAll();
         document.title = title;
         navigate('/')
-    })
+    }, [title, navigate])
 
     return ( 
         <div className="container vh-100 d-grid align-items-center text-center">

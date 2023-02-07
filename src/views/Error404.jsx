@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 function Error404({ title }) {
     useEffect(() => {
         document.title = title
-    });
+    }, [title]);
 
     return (
         <>

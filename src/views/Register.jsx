@@ -1,8 +1,8 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import authService from "../service/AuthService";
 
-function Register() {
+function Register({title}) {
     const navigate = useNavigate();
     let passwordValue = '';
     let invalidEmailErrorMsg = 'Please enter a valid email address.';
@@ -77,6 +77,10 @@ function Register() {
             role: form.role.value
         };
     }
+
+    useEffect(() => {
+        document.title = title
+    }, [title])
 
     return (
         <div className="container login">
