@@ -12,7 +12,7 @@ class LocalStorageService {
     }
     clearAll() {
         localStorage.removeItem(this.#TOKEN_KEY);
-        localStorage.removeItem(this.#EMAIL_KEY);
+        // localStorage.removeItem(this.#EMAIL_KEY);
         localStorage.removeItem(this.#ROLE_KEY);
     }
 
