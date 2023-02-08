@@ -1,7 +1,7 @@
 import { useState } from "react";
 import managementStaffService from "../../../service/ManagementStaffService";
 
-function Settings({token}) {
+function Settings({token, callback}) {
     let passwordValue = '';
     let invalidEmailErrorMsg = 'Please enter a valid email address.';
     const [emailErrMsg, setErrMsg] = useState(invalidEmailErrorMsg)
@@ -17,6 +17,8 @@ function Settings({token}) {
         managementStaffService.assignNewMember(token, data)
         .then(res => {
             clearEverything(e)
+            callback();
+
         }).catch(err => {
             setErrMsg(err.response.data.message)
             e.target.email.classList.remove('is-valid')

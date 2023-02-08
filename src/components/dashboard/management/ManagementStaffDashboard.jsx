@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import managementStaffService from "../../../service/ManagementStaffService";
 import TabItem from "../../tab/TabItem";
 import TabItemGroup from "../../tab/TabItemGroup";
@@ -10,14 +10,19 @@ import Settings from "./Settings";
 function ManagementStaffDashboard({token}) {
     const [users, setUsers] = useState([]);
 
-    useEffect(() => {
+    const updateUsers = useCallback(() => {
         managementStaffService.getAllUsers(token)
         .then(data => {
             setUsers(data);
         }).catch(err => {
             console.log(err);
         })
-    }, [token, setUsers])
+    }, [token])
+
+    useEffect(() => {
+        updateUsers()
+    }, [updateUsers])
+
 
     return (
         <div className="container">
@@ -42,7 +47,7 @@ function ManagementStaffDashboard({token}) {
                         <TabPane id='payments-tab'><h2>Payments</h2></TabPane>
                         <TabPane id='settings-tab'>
                             <h2 className="mb-3">Settings</h2><hr className="text-secondary" />
-                            <Settings token={token}/>
+                            <Settings token={token} callback={updateUsers}/>
                         </TabPane>
                     </TabPaneGroup>
                 </div>
