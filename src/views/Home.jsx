@@ -27,7 +27,7 @@ function Home({title}) {
 
 	return (
 		<>
-            <NavBar isSigned={isSigned} role={userData.role} />
+            <NavBar isSigned={isSigned} />
 			{
                 isSigned ? 
                 <AuthenticatedHome data={userData} isFirstTimeAfterSigned={isFirstTimeAfterSigned} /> : 
