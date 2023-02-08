@@ -1,4 +1,5 @@
 import { createBrowserRouter } from 'react-router-dom';
+import Dashboard from './views/Dashboard';
 import Error404 from './views/Error404';
 import Home from './views/Home';
 import Login from './views/Login';
@@ -26,6 +27,10 @@ const routes = createBrowserRouter([
     {
       path: "/profile",
       element: <Profile title='Profile' />
+    },
+    {
+      path: "/dashboard",
+      element: <Dashboard title='Dashboard' />
     },
     {
       path: "/*",
