@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-function NavBar({ isSigned }) {
+function NavBar({ isSigned, role }) {
     return (
         <nav className="navbar navbar-expand-lg bg-light py-3">
             <div className="container-fluid">
@@ -35,7 +35,7 @@ function NavBar({ isSigned }) {
                                 </Link>
                                 <ul className="dropdown-menu dropdown-menu-end">
                                     <li><Link className="dropdown-item" to='/profile'>Profile</Link></li>
-                                    <li><Link className="dropdown-item" to='/'>Another action</Link></li>
+                                    {role==="MANAGEMENT_STAFF" && <li><Link className="dropdown-item" to='/all-users'>View all users</Link></li>}
                                     <li><hr className="dropdown-divider" /></li>
                                     <li><Link className="dropdown-item text-danger" to='/logout'>Logout</Link></li>
                                 </ul>
