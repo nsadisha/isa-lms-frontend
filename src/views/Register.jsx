@@ -141,10 +141,6 @@ function Register({title}) {
                                     <input className="form-check-input" type="radio" name="role" id="inlineRadio2" value="TEACHER" required />
                                     <label className="form-check-label" htmlFor="inlineRadio2">Teacher</label>
                                 </div>
-                                <div className="form-check form-check-inline">
-                                    <input className="form-check-input" type="radio" name="role" id="inlineRadio3" value="MANAGEMENT_STAFF" required />
-                                    <label className="form-check-label" htmlFor="inlineRadio3">Management Staff</label>
-                                </div>
                             </div>
                             <button type="submit" className="btn gradiant-btn w-100">Submit</button>
                         </form>
