@@ -8,6 +8,7 @@ import AnnonymousHome from "../components/non_authenticated/AnnonymousHome";
 
 function Home({title}) {
     const isSigned = localStorageService.isSigned()
+    const isFirstTimeAfterSigned = localStorageService.getIsFirstTime();
     const [userData, setUserData] = useState({});
 
     
@@ -29,7 +30,7 @@ function Home({title}) {
             <NavBar isSigned={isSigned}/>
 			{
                 isSigned ? 
-                <AuthenticatedHome data={userData} /> : 
+                <AuthenticatedHome data={userData} isFirstTimeAfterSigned={isFirstTimeAfterSigned} /> : 
                 <AnnonymousHome />
             }
 		</>
