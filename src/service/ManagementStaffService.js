@@ -7,9 +7,12 @@ class ManagementStaffService{
                 Authorization: `Bearer ${token}`
             }
         }).then(res => {
-            return res;
+            return res.data;
         }).catch(err => {
             throw err;
         })
     }
 }
+
+let managementStaffService = new ManagementStaffService();
+export default managementStaffService;
