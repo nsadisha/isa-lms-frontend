@@ -12,6 +12,18 @@ class ManagementStaffService{
             throw err;
         })
     }
+
+    async assignNewMember(token, data) {
+        return axios.post('/management/assign', data, {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        }).then(res => {
+            return res.data;
+        }).catch(err => {
+            throw err;
+        })
+    }
 }
 
 let managementStaffService = new ManagementStaffService();
