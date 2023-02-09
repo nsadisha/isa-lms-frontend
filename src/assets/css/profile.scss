@@ -1,0 +1,12 @@
+@use 'variables' as v;
+
+.profile-photo {
+    width: 50%;
+    aspect-ratio: 1 / 1;
+    background-color: v.$secondaryTextColor2;
+    font-size: 2.5rem;
+    display: grid;
+    place-items: center;
+    color: v.$primaryTextColor;
+    border-radius: 50%;
+}

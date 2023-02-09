@@ -62,3 +62,13 @@ label {
   font-size: 1rem;
   vertical-align: middle;
 }
+
+.gradiant-bg {
+  background: v.$gradiant !important;
+}
+
+.list-group-item.active {
+  background: v.$gradiant !important;
+  outline: none;
+  border: none;
+}

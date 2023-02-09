@@ -1,8 +1,8 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import authService from "../service/AuthService";
 
-function Register() {
+function Register({title}) {
     const navigate = useNavigate();
     let passwordValue = '';
     let invalidEmailErrorMsg = 'Please enter a valid email address.';
@@ -17,7 +17,6 @@ function Register() {
             return;
         }
         authService.register(data).then(res => {
-            console.log(res);
             navigate('/login')
         }).catch(err => {
             setErrMsg(err.response.data.message)
@@ -79,6 +78,10 @@ function Register() {
         };
     }
 
+    useEffect(() => {
+        document.title = title
+    }, [title])
+
     return (
         <div className="container login">
             <div className="row vh-100 justify-content-center align-items-center">
@@ -137,10 +140,6 @@ function Register() {
                                 <div className="form-check form-check-inline">
                                     <input className="form-check-input" type="radio" name="role" id="inlineRadio2" value="TEACHER" required />
                                     <label className="form-check-label" htmlFor="inlineRadio2">Teacher</label>
-                                </div>
-                                <div className="form-check form-check-inline">
-                                    <input className="form-check-input" type="radio" name="role" id="inlineRadio3" value="MANAGEMENT_STAFF" required />
-                                    <label className="form-check-label" htmlFor="inlineRadio3">Management Staff</label>
                                 </div>
                             </div>
                             <button type="submit" className="btn gradiant-btn w-100">Submit</button>

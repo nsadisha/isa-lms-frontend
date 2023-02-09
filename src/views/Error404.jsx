@@ -3,15 +3,17 @@ import NavBar from "../components/NavBar";
 
 import image404 from '../assets/img/404.png'
 import { Link } from "react-router-dom";
+import localStorageService from "../service/LocalStorageService";
 
 function Error404({ title }) {
+    const isSigned = localStorageService.isSigned();
     useEffect(() => {
-        document.title = title
-    });
+        document.title = title;
+    }, [title]);
 
     return (
         <>
-            <NavBar />
+            <NavBar isSigned={isSigned} />
             <div className="container mt-3 mt-sm-5">
                 <div className="row">
                     <div className="col-md-6 d-flex justify-content-center">
