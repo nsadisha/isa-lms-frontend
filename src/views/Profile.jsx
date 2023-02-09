@@ -42,7 +42,7 @@ function Profile({title}) {
 
                     <h2 className='mt-3'>{userData.first_name} {userData.last_name}</h2>
                     <p>{userData.email}</p>
-                    <span className="badge rounded-pill text-bg-primary">{userData.role}</span>
+                    <span className="badge rounded-pill gradiant-bg px-3">{userData.role}</span>
                 </div>
                 <div className="col-md-9">There</div>
                 </div>
