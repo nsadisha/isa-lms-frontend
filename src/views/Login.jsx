@@ -6,8 +6,9 @@ import localStorageService from '../service/LocalStorageService';
 import '../assets/css/login.scss';
 
 function Login({title}) {
-    const navigate = useNavigate()
-    const [email, setEmail] = useState('')
+    const navigate = useNavigate();
+    const [email, setEmail] = useState('');
+    const [error, setError] = useState('');
 
     function hadndleLogin(e) {
         e.preventDefault()
@@ -22,8 +23,14 @@ function Login({title}) {
 
             navigate('/')
         }).catch(err => {
-            console.log(err.response.data);
+            setError(getErrorMessageFromError(err));
+            e.target.email.classList.add('is-invalid');
+            e.target.password.classList.add('is-invalid');
         })
+    }
+
+    function getErrorMessageFromError(err) {
+        return err.response!==undefined?err.response.data.message:"Email or password is incorrect....";
     }
 
     useEffect(() => {
@@ -48,7 +55,10 @@ function Login({title}) {
                             </div>
                             <div className="mb-3">
                                 <label htmlFor="exampleInputPassword1" className="form-label">Password</label>
-                                <input type="password" className="form-control" id="exampleInputPassword1" name='password' />
+                                <input type="password" className="form-control" id="exampleInputPassword1" name='password' required />
+                                <div id="passwordFeedback" className="invalid-feedback">
+                                    {error}
+                                </div>
                             </div>
                             <button type="submit" className="btn gradiant-btn w-100">Submit</button>
                         </form>
