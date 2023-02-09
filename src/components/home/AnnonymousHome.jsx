@@ -1,13 +1,11 @@
-import Alert from "../Alert";
 import EmptyState from "../EmptyState";
 
-function AuthenticatedHome({data, isFirstTimeAfterSigned}) {
-
-    return (
+function AnnonymousHome() {
+    return ( 
         <div className="container">
+            <h3>Home</h3>
             <div className="row justify-content-center py-3">
                 <div className="col-md-6">
-                    {isFirstTimeAfterSigned && <Alert message={"Welcome back "+data.first_name+"!"} />}
                     <EmptyState message='No content here!' />
                 </div>
             </div>
@@ -15,4 +13,4 @@ function AuthenticatedHome({data, isFirstTimeAfterSigned}) {
      );
 }
 
-export default AuthenticatedHome;
+export default AnnonymousHome;
