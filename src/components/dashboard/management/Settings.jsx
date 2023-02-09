@@ -1,21 +1,24 @@
 import { useState } from "react";
 import managementStaffService from "../../../service/ManagementStaffService";
+import Toast from "../../Toast"
 
 function Settings({token, callback}) {
     let passwordValue = '';
     let invalidEmailErrorMsg = 'Please enter a valid email address.';
     const [emailErrMsg, setErrMsg] = useState(invalidEmailErrorMsg)
+    const [showToast, setShowToast] = useState('false');
 
     function handleAssignMember(e) {
         e.preventDefault()
         let data = createDataObjectForm(e.target)
-
+        
         if (!isPasswordValid(data.password) || !isConfirmPasswordValid(data.password, data.cPassword) || !isEmailValid(data.email)) {
             console.log("Please check your fields again!");
             return;
         }
         managementStaffService.assignNewMember(token, data)
         .then(res => {
+            setShowToast('true')
             clearEverything(e)
             callback();
 
@@ -143,6 +146,13 @@ function Settings({token, callback}) {
                     </div>
                 </div>
             </form>
+
+            <Toast
+                title='✅ ISA LMS' 
+                message='New staff member successfully added.' 
+                time='Now' 
+                show={showToast}
+                onDismissed={() => {setShowToast('false')}} />
         </div>
     );
 }
