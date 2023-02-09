@@ -1,4 +1,7 @@
+import localStorageService from "../../../service/LocalStorageService";
+
 function AllUsers({ users }) {
+    const email = localStorageService.getEmail()
     return (
         <table className="table table-striped">
             <thead>
@@ -14,7 +17,7 @@ function AllUsers({ users }) {
                     return (
                         <tr key={user.email}>
                             <th scope="row">{user.id}</th>
-                            <td>{user.first_name+" "+user.last_name}</td>
+                            <td>{user.first_name+" "+user.last_name} {email===user.email && "(You)"}</td>
                             <td>{user.email}</td>
                             <td>{user.role}</td>
                         </tr>
