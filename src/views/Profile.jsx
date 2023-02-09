@@ -7,6 +7,7 @@ import NavBar from "../components/NavBar";
 import ProfilePhoto from "../components/ProfilePhoto";
 
 import '../assets/css/profile.scss'
+import EmptyState from '../components/EmptyState';
 
 function Profile({title}) {
 
@@ -44,7 +45,9 @@ function Profile({title}) {
                     <p>{userData.email}</p>
                     <span className="badge rounded-pill gradiant-bg px-3">{userData.role}</span>
                 </div>
-                <div className="col-md-9">There</div>
+                <div className="col-md-9">
+                    <EmptyState message='No content here!' />
+                </div>
                 </div>
             </div>
         </>

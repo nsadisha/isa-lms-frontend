@@ -1,8 +1,14 @@
+import EmptyState from "../EmptyState";
+
 function AnnonymousHome() {
     return ( 
-        <>
-            <h1>Hello annonymous user...</h1>
-        </>
+        <div className="container">
+            <div className="row justify-content-center py-3">
+                <div className="col-md-6">
+                    <EmptyState message='No content here!' />
+                </div>
+            </div>
+        </div>
      );
 }
 
