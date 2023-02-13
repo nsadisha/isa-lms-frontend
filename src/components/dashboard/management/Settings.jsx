@@ -97,7 +97,7 @@ function Settings({token, callback}) {
     return (
         <div>
             <form onSubmit={handleAssignMember}>
-                <h4 className="mb-3">Assign new staff member</h4>
+                <h4 className="mb-4 mt-3">Assign new staff member</h4>
                 <div className="row">
                 <div className="col-md-4">
                         <div className="mb-3">
