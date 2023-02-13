@@ -6,6 +6,7 @@ import TabItemGroup from "../../tab/TabItemGroup";
 import TabPane from "../../tab/TabPane";
 import TabPaneGroup from "../../tab/TabPaneGroup";
 import AllUsers from "./AllUsers";
+import Home from "./Home";
 import Settings from "./Settings";
 
 function ManagementStaffDashboard({token}) {
@@ -38,7 +39,10 @@ function ManagementStaffDashboard({token}) {
                 </div>
                 <div className="col-md-9">
                     <TabPaneGroup id='management-dashboard-tabs'>
-                        <TabPane id='home-tab' active='true'><h2>Home</h2></TabPane>
+                        <TabPane id='home-tab' active='true'>
+                            <h2 className="mb-3">Home</h2><hr className="text-secondary" />
+                            <Home users={users} />
+                        </TabPane>
                         <TabPane id='all-users-tab'>
                             <h2 className="mb-3">All users</h2><hr className="text-secondary" />
                             <AllUsers users={users} />
