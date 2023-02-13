@@ -1,8 +1,20 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 
-function NavBar({ isSigned }) {
+function NavBar({ isSigned, theme }) {
+    const [scrollClass, setScrollClass] = useState('')
+    function handleOnScrollEffect() {
+        if(window.scrollY > 100) {
+            setScrollClass('scrolling')
+        }else{
+            setScrollClass('')
+        }  
+    }
+
+    document.addEventListener('scroll',handleOnScrollEffect)
+
     return (
-        <nav className="navbar navbar-expand-lg bg-light py-3">
+        <nav className={`navbar ${theme} ${scrollClass} fixed-top navbar-expand-lg`}>
             <div className="container-fluid">
                 <Link className="navbar-brand" to='/'>ISA LMS</Link>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
