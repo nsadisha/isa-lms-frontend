@@ -57,7 +57,7 @@ function Home({title}) {
 	return (
 		<>
             <NavBar isSigned={isSigned} />
-            <div className="mb-3"></div>
+            {/* <div className="mb-3"></div> */}
 
             {displayWelcomeMessage()}
 
