@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 
 function AnnonymousHome() {
     return (
-        <div className="container-fluid page-banner" style={{ background: `url(${banner}) rgba(0,0,0,0.3)` }}>
+        <>
+        <div className="container-fluid page-banner" style={{ background: `url(${banner}) rgba(0,0,0,0.4)` }}>
             <div className="container">
                 <div className="row vh-100 d-grid align-items-center">
                     <div className="col-md-7">
@@ -16,6 +17,7 @@ function AnnonymousHome() {
                 </div>
             </div>
         </div>
+        </>
     );
 }
 
