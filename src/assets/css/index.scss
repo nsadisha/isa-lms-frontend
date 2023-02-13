@@ -107,11 +107,18 @@ label {
   }
 
   &.dark {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    background-color: white;
+    box-shadow: 1px 0 5px #0000008e;
+    
     .navbar-brand {
       color: v.$primaryTextColor !important;
+      font-size: 1.25rem;
     }
     .nav-link {
       color: v.$secondaryTextColor !important;
+      font-size: unset;
     }
   }
   
@@ -119,6 +126,7 @@ label {
     padding-top: 1rem;
     padding-bottom: 1rem;
     background-color: white;
+    box-shadow: 1px 0 10px #00000033;
     
     .navbar-brand {
       color: v.$primaryTextColor !important;
@@ -132,6 +140,11 @@ label {
 }
 .navbar-height {
   height: 5rem;
+}
+
+.card {
+  border: none;
+  box-shadow: 1px 1px 10px #00000033;
 }
 
 
