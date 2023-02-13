@@ -1,4 +1,3 @@
-import EmptyState from "../EmptyState";
 import banner from "../../assets/img/all-banner.jpg"
 import { Link } from "react-router-dom";
 
