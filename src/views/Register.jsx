@@ -115,7 +115,8 @@ function Register({title}) {
                                     className="form-control"
                                     id="exampleInputPassword1"
                                     name='password'
-                                    onChange={handlePasswordField} />
+                                    onChange={handlePasswordField}
+                                    required />
                                 <div id="passwordFeedback" className="invalid-feedback">
                                     Password must contain at least 8 characters.
                                 </div>
@@ -126,7 +127,8 @@ function Register({title}) {
                                     className="form-control"
                                     id="exampleInputPassword1"
                                     name='cPassword'
-                                    onChange={handleConfirmPasswordField} />
+                                    onChange={handleConfirmPasswordField}
+                                    required />
                                 <div id="cpasswordFeedback" className="invalid-feedback">
                                     Does not match with the password you entered!
                                 </div>
