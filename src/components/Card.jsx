@@ -1,9 +1,12 @@
-function Card({ header, body, description }) {
+function Card({ header, body, description, icon }) {
     return (
         <div className="card mb-3">
-            <h5 className="card-header">{header}</h5>
+            <div className="header d-flex w-100">
+                <img src={icon} alt="Icon" />
+                <span className="card-header">{header}</span>
+            </div>
             <div className="card-body">
-                <h5 className="card-title text-secondary">{body}</h5>
+                <p className="card-title">{body}</p>
                 <p className="card-text">{description}</p>
             </div>
         </div>
