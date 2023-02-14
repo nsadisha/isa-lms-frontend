@@ -22,8 +22,8 @@ function Dashboard({title}) {
 
     return ( 
         <>
-            <NavBar isSigned={isSigned} />
-
+            <NavBar isSigned={isSigned} theme='dark' />
+            <div className="navbar-height"></div>
             <div className="mt-5">
                 {role==="MANAGEMENT_STAFF" && <ManagementStaffDashboard token={token} />}
                 {role==="TEACHER" && <TeacherDashboard token={token} />}

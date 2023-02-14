@@ -35,21 +35,22 @@ function Profile({title}) {
 
     return ( 
         <>
-        <NavBar isSigned={isSigned} />
-            <div className="container mt-5">
-                <div className="row">
-                <div className="col-md-3">
-                    <ProfilePhoto letters={displayLetteres} />
+        <NavBar isSigned={isSigned} theme='dark' />
+        <div className="navbar-height"></div>
+        <div className="container mt-5">
+            <div className="row justify-content-center">
+            <div className="col-md-4 text-center">
+                <ProfilePhoto letters={displayLetteres} />
 
-                    <h2 className='mt-3'>{userData.first_name} {userData.last_name}</h2>
-                    <p>{userData.email}</p>
-                    <span className="badge rounded-pill gradiant-bg px-3">{userData.role}</span>
-                </div>
-                <div className="col-md-9">
-                    <EmptyState message='No content here!' />
-                </div>
-                </div>
+                <h2 className='mt-3'>{userData.first_name} {userData.last_name}</h2>
+                <p>{userData.email}</p>
+                <span className="badge rounded-pill gradiant-bg px-3">{userData.role}</span>
             </div>
+            <div className="col-md-9 d-none">
+                <EmptyState message='No content here!' />
+            </div>
+            </div>
+        </div>
         </>
      );
 }

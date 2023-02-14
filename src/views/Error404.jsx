@@ -13,7 +13,8 @@ function Error404({ title }) {
 
     return (
         <>
-            <NavBar isSigned={isSigned} />
+            <NavBar isSigned={isSigned} theme='dark' />
+            <div className="navbar-height"></div>
             <div className="container mt-3 mt-sm-5">
                 <div className="row">
                     <div className="col-md-6 d-flex justify-content-center">

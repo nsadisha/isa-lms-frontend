@@ -14,7 +14,6 @@ function Home({title}) {
     const isFirstTimeAfterSigned = localStorageService.getIsFirstTime();
     const role = localStorageService.getRole();
     const [userData, setUserData] = useState({});
-
     
     useEffect(() => {
         if(isSigned){
@@ -43,13 +42,7 @@ function Home({title}) {
     function displayWelcomeMessage() {
         if(isFirstTimeAfterSigned && isSigned) {
             return (
-                <div className="container">
-                    <div className="row justify-content-center">
-                        <div className="col-md-6">
-                            <Alert message={"Welcome back "+userData.first_name+"!"} />
-                        </div>
-                    </div>
-                </div>
+                <Alert message={"Welcome "+userData.first_name+"!"} />
             );
         }
     }
@@ -57,7 +50,7 @@ function Home({title}) {
 	return (
 		<>
             <NavBar isSigned={isSigned} />
-            <div className="mb-3"></div>
+            {/* <div className="mb-3"></div> */}
 
             {displayWelcomeMessage()}
 
