@@ -1,6 +1,8 @@
 import { useState } from "react";
-import managementStaffService from "../../../service/ManagementStaffService";
 import Toast from "../../Toast"
+import managementStaffService from "../../../service/ManagementStaffService";
+import { isEmailValid, isPasswordValid, isConfirmPasswordValid } from "../../../service/FormValidationService";
+import { createDataObjectForm } from "../../../service/FormHelperService";
 
 function Settings({ token, callback }) {
     let passwordValue = '';
@@ -23,6 +25,7 @@ function Settings({ token, callback }) {
                 callback();
 
             }).catch(err => {
+                console.log(err);
                 setErrMsg(err.response.data.message)
                 e.target.email.classList.remove('is-valid')
                 e.target.email.classList.add('is-invalid')
@@ -30,21 +33,9 @@ function Settings({ token, callback }) {
             })
     }
 
-    function isEmailValid(email) {
-        // eslint-disable-next-line
-        let regEx = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,9})+$/
-        return regEx.test(email)
-    }
-    function isPasswordValid(password) {
-        passwordValue = password;
-        return password.length > 7;
-    }
-    function isConfirmPasswordValid(password, cPassword) {
-        return cPassword === password
-    }
-
     const handlePasswordField = (e) => {
-        if (isPasswordValid(e.target.value)) {
+        passwordValue = e.target.value;
+        if (isPasswordValid(passwordValue)) {
             e.target.classList.remove('is-invalid')
             e.target.classList.add('is-valid')
         } else {
@@ -71,27 +62,16 @@ function Settings({ token, callback }) {
         }
     }
 
-    function createDataObjectForm(form) {
-        return {
-            first_name: form.fname.value,
-            last_name: form.lname.value,
-            email: form.email.value,
-            password: form.password.value,
-            cPassword: form.cpassword.value,
-            role: form.role.value
-        };
-    }
-
     function clearEverything(e) {
         e.target.fname.value = "";
         e.target.lname.value = "";
         e.target.email.value = "";
         e.target.password.value = "";
-        e.target.cpassword.value = "";
+        e.target.cPassword.value = "";
 
         e.target.email.classList.remove('is-valid');
         e.target.password.classList.remove('is-valid');
-        e.target.cpassword.classList.remove('is-valid');
+        e.target.cPassword.classList.remove('is-valid');
     }
 
     return (
@@ -132,7 +112,7 @@ function Settings({ token, callback }) {
                     <div className="col-md-4">
                         <div className="mb-3">
                             <label htmlFor="confirm-password" className="form-label">Confirm password</label>
-                            <input type="password" className="form-control" id="confirm-password" name='cpassword' onChange={handleConfirmPasswordField} required />
+                            <input type="password" className="form-control" id="confirm-password" name='cPassword' onChange={handleConfirmPasswordField} required />
                             <div id="cpasswordFeedback" className="invalid-feedback">
                                 Does not match with the password you entered!
                             </div>
