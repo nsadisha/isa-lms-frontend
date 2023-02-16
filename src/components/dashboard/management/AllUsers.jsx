@@ -17,7 +17,7 @@ function AllUsers({ users }) {
                     return (
                         <tr key={user.email}>
                             <th scope="row">{user.id}</th>
-                            <td>{user.first_name+" "+user.last_name} {email===user.email && "(You)"}</td>
+                            <td>{user.first_name + " " + user.last_name} {email === user.email && "(You)"}</td>
                             <td>{user.email}</td>
                             <td>{user.role}</td>
                         </tr>

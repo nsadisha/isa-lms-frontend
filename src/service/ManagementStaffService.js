@@ -1,6 +1,6 @@
 import axios from "axios";
 
-class ManagementStaffService{
+class ManagementStaffService {
     async getAllUsers(token) {
         return axios.get('/management/get_all_users', {
             headers: {

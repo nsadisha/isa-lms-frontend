@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import authService from "../service/AuthService";
 
-function Register({title}) {
+function Register({ title }) {
     const navigate = useNavigate();
     let passwordValue = '';
     let invalidEmailErrorMsg = 'Please enter a valid email address.';

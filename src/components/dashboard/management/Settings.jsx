@@ -2,7 +2,7 @@ import { useState } from "react";
 import managementStaffService from "../../../service/ManagementStaffService";
 import Toast from "../../Toast"
 
-function Settings({token, callback}) {
+function Settings({ token, callback }) {
     let passwordValue = '';
     let invalidEmailErrorMsg = 'Please enter a valid email address.';
     const [emailErrMsg, setErrMsg] = useState(invalidEmailErrorMsg)
@@ -11,23 +11,23 @@ function Settings({token, callback}) {
     function handleAssignMember(e) {
         e.preventDefault()
         let data = createDataObjectForm(e.target)
-        
+
         if (!isPasswordValid(data.password) || !isConfirmPasswordValid(data.password, data.cPassword) || !isEmailValid(data.email)) {
             console.log("Please check your fields again!");
             return;
         }
         managementStaffService.assignNewMember(token, data)
-        .then(res => {
-            setShowToast('true')
-            clearEverything(e)
-            callback();
+            .then(res => {
+                setShowToast('true')
+                clearEverything(e)
+                callback();
 
-        }).catch(err => {
-            setErrMsg(err.response.data.message)
-            e.target.email.classList.remove('is-valid')
-            e.target.email.classList.add('is-invalid')
-            console.log(err.response.data);
-        })
+            }).catch(err => {
+                setErrMsg(err.response.data.message)
+                e.target.email.classList.remove('is-valid')
+                e.target.email.classList.add('is-invalid')
+                console.log(err.response.data);
+            })
     }
 
     function isEmailValid(email) {
@@ -99,7 +99,7 @@ function Settings({token, callback}) {
             <form onSubmit={handleAssignMember}>
                 <h4 className="mb-4 mt-3">Assign new staff member</h4>
                 <div className="row">
-                <div className="col-md-4">
+                    <div className="col-md-4">
                         <div className="mb-3">
                             <label htmlFor="first-name" className="form-label">First name</label>
                             <input type="text" className="form-control" id="first-name" name='fname' required />
@@ -148,11 +148,11 @@ function Settings({token, callback}) {
             </form>
 
             <Toast
-                title='✅ ISA LMS' 
-                message='New staff member successfully added.' 
-                time='Now' 
+                title='✅ ISA LMS'
+                message='New staff member successfully added.'
+                time='Now'
                 show={showToast}
-                onDismissed={() => {setShowToast('false')}} />
+                onDismissed={() => { setShowToast('false') }} />
         </div>
     );
 }

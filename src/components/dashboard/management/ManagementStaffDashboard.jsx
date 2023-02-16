@@ -9,16 +9,16 @@ import AllUsers from "./AllUsers";
 import Home from "./Home";
 import Settings from "./Settings";
 
-function ManagementStaffDashboard({token}) {
+function ManagementStaffDashboard({ token }) {
     const [users, setUsers] = useState([]);
 
     const updateUsers = useCallback(() => {
         managementStaffService.getAllUsers(token)
-        .then(data => {
-            setUsers(data);
-        }).catch(err => {
-            console.log(err);
-        })
+            .then(data => {
+                setUsers(data);
+            }).catch(err => {
+                console.log(err);
+            })
     }, [token])
 
     useEffect(() => {
@@ -53,7 +53,7 @@ function ManagementStaffDashboard({token}) {
                         </TabPane>
                         <TabPane id='settings-tab'>
                             <h2 className="mb-3">Settings</h2><hr className="text-secondary" />
-                            <Settings token={token} callback={updateUsers}/>
+                            <Settings token={token} callback={updateUsers} />
                         </TabPane>
                     </TabPaneGroup>
                 </div>
