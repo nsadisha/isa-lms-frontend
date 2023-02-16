@@ -1,7 +1,7 @@
 import EmptyState from "../../EmptyState";
 
 function StudentDashboard() {
-    return ( 
+    return (
         <div className="container">
             <div className="row justify-content-center">
                 <div className="col-md-8">

@@ -6,28 +6,28 @@ import TeacherDashboard from "../components/dashboard/teacher/TeacherDashboard";
 import NavBar from "../components/NavBar";
 import localStorageService from "../service/LocalStorageService";
 
-function Dashboard({title}) {
+function Dashboard({ title }) {
     const navigate = useNavigate();
     const isSigned = localStorageService.isSigned();
     let token = localStorageService.getToken();
     const role = localStorageService.getRole();
 
     useEffect(() => {
-        if(!isSigned){
+        if (!isSigned) {
             navigate('/')
         }
 
         document.title = title
     }, [title, navigate, isSigned])
 
-    return ( 
+    return (
         <>
             <NavBar isSigned={isSigned} theme='dark' />
             <div className="navbar-height"></div>
             <div className="mt-5">
-                {role==="MANAGEMENT_STAFF" && <ManagementStaffDashboard token={token} />}
-                {role==="TEACHER" && <TeacherDashboard token={token} />}
-                {role==="STUDENT" && <StudentDashboard token={token} />}
+                {role === "MANAGEMENT_STAFF" && <ManagementStaffDashboard token={token} />}
+                {role === "TEACHER" && <TeacherDashboard token={token} />}
+                {role === "STUDENT" && <StudentDashboard token={token} />}
             </div>
         </>
     );

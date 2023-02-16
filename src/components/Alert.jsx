@@ -1,7 +1,7 @@
 import { useState } from "react";
 import localStorageService from "../service/LocalStorageService";
 
-function Alert({message, varient='primary'}) {
+function Alert({ message, varient = 'primary' }) {
     const [styles, setStyles] = useState({
         position: 'absolute',
         transform: 'translateX(-50%)',
@@ -10,14 +10,14 @@ function Alert({message, varient='primary'}) {
     });
 
     function handleAlertClose() {
-        setStyles({...styles, display: 'none'})
+        setStyles({ ...styles, display: 'none' })
         localStorageService.setIsFirstTime(false);
     }
 
     return (
-        <div className={"alert alert-"+varient+" alert-dismissible"} style={styles}>
+        <div className={"alert alert-" + varient + " alert-dismissible"} style={styles}>
             <div className="me-3">{message}</div>
-            <button 
+            <button
                 type="button"
                 className="btn-close"
                 // data-bs-dismiss="alert"

@@ -5,14 +5,14 @@ import localStorageService from '../service/LocalStorageService';
 
 import '../assets/css/login.scss';
 
-function Login({title}) {
+function Login({ title }) {
     const navigate = useNavigate();
     const [email, setEmail] = useState('');
     const [error, setError] = useState('');
 
     function hadndleLogin(e) {
         e.preventDefault()
-    
+
         let email = e.target.email.value;
         let password = e.target.password.value;
 
@@ -30,17 +30,17 @@ function Login({title}) {
     }
 
     function getErrorMessageFromError(err) {
-        return err.response!==undefined?err.response.data.message:"Email or password is incorrect....";
+        return err.response !== undefined ? err.response.data.message : "Email or password is incorrect....";
     }
 
     useEffect(() => {
-        if(localStorageService.isSigned()){
+        if (localStorageService.isSigned()) {
             navigate('/')
         }
 
         setEmail(localStorageService.getEmail())
         document.title = title;
-    },[title, navigate]);
+    }, [title, navigate]);
 
     return (
         <div className="container login">

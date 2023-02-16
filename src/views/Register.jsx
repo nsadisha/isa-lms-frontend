@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import authService from "../service/AuthService";
+import { isEmailValid, isPasswordValid, isConfirmPasswordValid } from "../service/FormValidationService";
+import { createDataObjectForm } from "../service/FormHelperService";
 
-function Register({title}) {
+function Register({ title }) {
     const navigate = useNavigate();
     let passwordValue = '';
     let invalidEmailErrorMsg = 'Please enter a valid email address.';
@@ -26,20 +28,8 @@ function Register({title}) {
         })
     }
 
-    function isEmailValid(email) {
-        // eslint-disable-next-line
-        let regEx = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,9})+$/
-        return regEx.test(email)
-    }
-    function isPasswordValid(password) {
-        passwordValue = password;
-        return password.length > 7;
-    }
-    function isConfirmPasswordValid(password, cPassword) {
-        return cPassword === password
-    }
-
     const handlePasswordField = (e) => {
+        passwordValue = e.target.value;
         if (isPasswordValid(e.target.value)) {
             e.target.classList.remove('is-invalid')
             e.target.classList.add('is-valid')
@@ -65,17 +55,6 @@ function Register({title}) {
         } else {
             e.target.classList.add('is-invalid')
         }
-    }
-
-    function createDataObjectForm(form) {
-        return {
-            first_name: form.fname.value,
-            last_name: form.lname.value,
-            email: form.email.value,
-            password: form.password.value,
-            cPassword: form.cPassword.value,
-            role: form.role.value
-        };
     }
 
     useEffect(() => {

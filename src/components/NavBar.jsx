@@ -4,14 +4,14 @@ import { Link } from "react-router-dom";
 function NavBar({ isSigned, theme }) {
     const [scrollClass, setScrollClass] = useState('')
     function handleOnScrollEffect() {
-        if(window.scrollY > 100) {
+        if (window.scrollY > 100) {
             setScrollClass('scrolling')
-        }else{
+        } else {
             setScrollClass('')
-        }  
+        }
     }
 
-    document.addEventListener('scroll',handleOnScrollEffect)
+    document.addEventListener('scroll', handleOnScrollEffect)
 
     return (
         <nav className={`navbar ${theme} ${scrollClass} fixed-top navbar-expand-lg`}>

@@ -8,35 +8,35 @@ import Profile from './views/Profile';
 import Register from './views/Register';
 
 const routes = createBrowserRouter([
-    {
-      path: "/",
-      element: <Home title='Home' />,
-    },
-    {
-      path: "/login",
-      element: <Login title='Login'/>,
-    },
-    {
-      path: "/register",
-      element: <Register title='Register' />
-    },
-    {
-      path: "/logout",
-      element: <Logout title='Logout' />
-    },
-    {
-      path: "/profile",
-      element: <Profile title='Profile' />
-    },
-    {
-      path: "/dashboard",
-      element: <Dashboard title='Dashboard' />
-    },
-    {
-      path: "/*",
-      element: <Error404 title="Oops! Page not found!" />
-    }
-  ]);
+	{
+		path: "/",
+		element: <Home title='Home' />,
+	},
+	{
+		path: "/login",
+		element: <Login title='Login' />,
+	},
+	{
+		path: "/register",
+		element: <Register title='Register' />
+	},
+	{
+		path: "/logout",
+		element: <Logout title='Logout' />
+	},
+	{
+		path: "/profile",
+		element: <Profile title='Profile' />
+	},
+	{
+		path: "/dashboard",
+		element: <Dashboard title='Dashboard' />
+	},
+	{
+		path: "/*",
+		element: <Error404 title="Oops! Page not found!" />
+	}
+]);
 
 
 export default routes;

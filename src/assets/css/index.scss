@@ -15,11 +15,16 @@ code {
     monospace;
 }
 
-h1,h2,h3,h4,h5,h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   color: v.$primaryTextColor;
 }
 
-p{
+p {
   color: v.$secondaryTextColor;
 }
 
@@ -39,19 +44,19 @@ label {
   margin-bottom: 0.2rem !important;
 }
 
-.r-50{
+.r-50 {
   border-radius: 50px !important;
   border: none;
   padding: 0.5rem 1.2rem !important;
 }
 
-.divider{
+.divider {
   position: relative;
   height: 2px;
   background: v.$gradiant;
 }
 
-.divider::before{
+.divider::before {
   content: attr(data-text);
   position: absolute;
   top: 50%;
@@ -79,14 +84,17 @@ label {
   background-size: contain;
   background-blend-mode: multiply;
   background-attachment: fixed !important;
+  background-repeat: no-repeat;
 
   h1 {
     font-size: 4.5rem;
     color: v.$lightTextColor;
   }
+
   p {
     color: v.$lightTextColor2;
   }
+
   button {
     font-size: 1.1rem;
     padding: 0.7rem 1.5rem !important;
@@ -102,6 +110,7 @@ label {
     color: v.$lightTextColor !important;
     font-size: 1.5rem;
   }
+
   .nav-link {
     color: v.$lightTextColor2;
     font-size: 1.2rem;
@@ -112,33 +121,36 @@ label {
     padding-bottom: 1rem;
     background-color: white;
     box-shadow: 1px 0 5px #0000008e;
-    
+
     .navbar-brand {
       color: v.$primaryTextColor !important;
       font-size: 1.25rem;
     }
+
     .nav-link {
       color: v.$secondaryTextColor !important;
       font-size: unset;
     }
   }
-  
+
   &.scrolling {
     padding-top: 1rem;
     padding-bottom: 1rem;
     background-color: white;
     box-shadow: 1px 0 10px #00000033;
-    
+
     .navbar-brand {
       color: v.$primaryTextColor !important;
       font-size: 1.25rem;
     }
+
     .nav-link {
       color: v.$secondaryTextColor2;
       font-size: unset;
     }
   }
 }
+
 .navbar-height {
   height: 5rem;
 }
@@ -161,6 +173,7 @@ label {
       display: flex;
       opacity: 0.5;
     }
+
     .card-header {
       background-color: transparent;
       border: none;
@@ -168,6 +181,7 @@ label {
       font-size: 1rem;
     }
   }
+
   .card-title {
     font-size: 1.05rem;
   }
@@ -186,6 +200,7 @@ label {
     padding-top: 1rem;
     padding-bottom: 1rem;
   }
+
   .navbar-height {
     height: 1rem;
   }

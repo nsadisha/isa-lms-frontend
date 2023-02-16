@@ -16,20 +16,20 @@ class AuthService {
 
     async register(data) {
         return axios.post('/auth/register', data)
-        .then(res => {
-            return res.data;
-        }).catch(err => {
-            throw err;
-        })
+            .then(res => {
+                return res.data;
+            }).catch(err => {
+                throw err;
+            })
     }
 
     async logout() {
         return axios.post('/auth/logout', {})
-        .then(res => {
-            return res;
-        }).catch(err => {
-            throw err;
-        })
+            .then(res => {
+                return res;
+            }).catch(err => {
+                throw err;
+            })
     }
 }
 const authService = new AuthService();
