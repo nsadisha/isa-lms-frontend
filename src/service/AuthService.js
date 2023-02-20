@@ -24,7 +24,7 @@ class AuthService {
     }
 
     async logout(token) {
-        return axios.post('/auth/logout',{}, {
+        return axios.post('/auth/logout', {}, {
             headers: {
                 Authorization: `Bearer ${token}`
             }

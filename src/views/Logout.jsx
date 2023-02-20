@@ -6,6 +6,7 @@ import localStorageService from "../service/LocalStorageService";
 function Logout({ title }) {
     const navigate = useNavigate();
     const token = localStorageService.getToken();
+
     useEffect(() => {
         document.title = title;
 
