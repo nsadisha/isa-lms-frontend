@@ -23,13 +23,16 @@ class AuthService {
             })
     }
 
-    async logout() {
-        return axios.post('/auth/logout', {})
-            .then(res => {
-                return res;
-            }).catch(err => {
-                throw err;
-            })
+    async logout(token) {
+        return axios.post('/auth/logout',{}, {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        }).then(res => {
+            return res;
+        }).catch(err => {
+            throw err;
+        })
     }
 }
 const authService = new AuthService();
