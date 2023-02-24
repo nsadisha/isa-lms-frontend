@@ -7,6 +7,7 @@ import ConductingCourses from "./ConductingCourses";
 import teacherService from "../../../service/TeacherService";
 import { useCallback, useEffect, useState } from "react";
 import localStorageService from "../../../service/LocalStorageService";
+import AddNewCourse from "./AddNewCourse";
 
 function TeacherDashboard() {
 
@@ -15,11 +16,11 @@ function TeacherDashboard() {
 
     const updateCourses = useCallback(() => {
         teacherService.getConductingCourses(token)
-        .then(res => {
-            setCourses(res);
-        }).catch(err => {
-            console.log(err);
-        })
+            .then(res => {
+                setCourses(res);
+            }).catch(err => {
+                console.log(err);
+            })
     }, [token])
 
     useEffect(() => {
@@ -32,18 +33,18 @@ function TeacherDashboard() {
                 <div className="col-md-3 mb-3">
                     <TabItemGroup>
                         <TabItem title="Courses" target="#courses" active="true" />
-                        <TabItem title="Add new course" target="#new-course" />
+                        <TabItem title="New" target="#new-course" />
                     </TabItemGroup>
                 </div>
                 <div className="col-md-9">
                     <TabPaneGroup>
                         <TabPane id="courses" active="true">
                             <h2 className="mb-3">Courses</h2><hr className="text-secondary" />
-
                             <ConductingCourses courses={courses} />
                         </TabPane>
                         <TabPane id="new-course">
                             <h2 className="mb-3">Add new course</h2><hr className="text-secondary" />
+                            <AddNewCourse successCallback={updateCourses} />
                         </TabPane>
                     </TabPaneGroup>
                 </div>
