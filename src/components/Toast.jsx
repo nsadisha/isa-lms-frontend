@@ -1,4 +1,4 @@
-function Toast({ title, message, time, show, onDismissed }) {
+function Toast({ title='✅ ISA LMS', message, time='Now', show, onDismissed }) {
     const isDisplaying = show === "true" ? "show" : ""
     return (
         <div className="toast-container position-fixed bottom-0 end-0 p-3">
