@@ -1,4 +1,5 @@
 import { createBrowserRouter } from 'react-router-dom';
+import CourseDetails from './views/CourseDetails';
 import Dashboard from './views/Dashboard';
 import Error404 from './views/Error404';
 import Home from './views/Home';
@@ -31,6 +32,10 @@ const routes = createBrowserRouter([
 	{
 		path: "/dashboard",
 		element: <Dashboard title='Dashboard' />
+	},
+	{
+		path: "/course/:courseId",
+		element: <CourseDetails title='Course details' />
 	},
 	{
 		path: "/*",
