@@ -32,7 +32,7 @@ function TeacherDashboard() {
             <div className="row justify-content-center">
                 <div className="col-md-3 mb-3">
                     <TabItemGroup>
-                        <TabItem title="Courses" target="#courses" active="true" />
+                        <TabItem title={`Courses (${courses.length})`} target="#courses" active="true" />
                         <TabItem title="New" target="#new-course" />
                     </TabItemGroup>
                 </div>
