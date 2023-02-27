@@ -28,8 +28,6 @@ function StudentHome() {
             console.log(err
             );
         });
-
-        studentService.getEnrolledCourses()
     }, [token, setLatestCourses, setEnrolledCourses])
 
     return (
