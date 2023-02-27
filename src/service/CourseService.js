@@ -30,6 +30,18 @@ class CourseService {
             throw err;
         });
     }
+
+    async getAllCourses() {
+        return axios.get("/course/all")
+        .then(res => {
+            res.data.forEach(u => {
+                delete u.conductor;
+            });
+            return res.data;
+        }).catch(err => {
+            throw err;
+        });
+    }
 }
 
 let courseService = new CourseService();
