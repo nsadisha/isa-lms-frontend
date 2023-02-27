@@ -18,13 +18,13 @@ function CourseDetailsForTeacher({ course }) {
     useEffect(() => {
         if (course.id === undefined) return;
         courseService.getEnrolledStudents(token, course.id)
-            .then(res => {
-                setParticipants(res);
-            }).catch(err => {
-                console.log(err);
-            })
+        .then(res => {
+            setParticipants(res);
+        }).catch(err => {
+            console.log(err);
+        })
     }, [token, course]);
-
+    
     return (
         <div className="container">
             <div className="row">
