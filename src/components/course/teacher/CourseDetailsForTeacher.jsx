@@ -1,8 +1,6 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import courseService from "../../../service/CourseService";
 import localStorageService from "../../../service/LocalStorageService";
-import NavDropdownItem from "../../nav/NavDropdownItem";
 import NavItem from "../../nav/NavItem";
 import NavItemGroup from "../../nav/NavItemGroup";
 import NavPane from "../../nav/NavPane";
@@ -35,9 +33,9 @@ function CourseDetailsForTeacher({ course }) {
                         <NavItem title="Participants" target="#nav-participants" />
                         <NavItem title="Details" target="#nav-details" />
 
-                        <NavDropdownItem title="More">
+                        {/* <NavDropdownItem title="More">
                             <li><Link to="/" className="dropdown-item text-danger">Some danger option</Link></li>
-                        </NavDropdownItem>
+                        </NavDropdownItem> */}
                     </NavItemGroup>
                     <NavPaneGroup>
                         <NavPane id="nav-activities" active="true">
