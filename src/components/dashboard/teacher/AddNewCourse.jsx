@@ -78,6 +78,7 @@ function AddNewCourse({ successCallback }) {
                                     className="form-control"
                                     value={course.description}
                                     onChange={(e) => setCourse({ ...course, description: e.target.value })}
+                                    maxLength="1000"
                                     rows="5">
                                 </textarea>
                                 <div id="passwordFeedback" className="invalid-feedback">
