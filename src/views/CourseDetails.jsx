@@ -1,5 +1,8 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import CourseDetailsForUnauthenticated from "../components/course/CourseDetailsForUnauthenticated";
+import CourseDetailsForManagementStaff from "../components/course/management/CourseDetailsForManagementStaff";
+import CourseDetailsForStudent from "../components/course/student/CourseDetailsForStudent";
 import CourseDetailsForTeacher from "../components/course/teacher/CourseDetailsForTeacher";
 import NavBar from "../components/NavBar";
 import courseService from "../service/CourseService";
@@ -23,21 +26,21 @@ function CourseDetails() {
             })
     }, [token, courseId]);
 
-    function getCourseDetailsView(role){
+    function getCourseDetailsView(role) {
         if (role === "MANAGEMENT_STAFF") {
-            return "mgt"
+            return <CourseDetailsForManagementStaff course={course} />
         } else if (role === "TEACHER") {
             return <CourseDetailsForTeacher course={course} />
         } else if (role === "STUDENT") {
-            return "student"
+            return <CourseDetailsForStudent course={course} />
         }
-        return "qweqwe"
+        return <CourseDetailsForUnauthenticated course={course} />;
     }
 
     return (
         <>
             <NavBar isSigned={isSigned} theme='dark' />
-            <div className="navbar-height"></div>
+            <div className="navbar-height mb-5"></div>
 
             {getCourseDetailsView(role)}
         </>
