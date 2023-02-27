@@ -14,6 +14,22 @@ class CourseService {
             throw err;
         });
     }
+
+    async getEnrolledStudents(token, courseId) {
+        return axios.get(`/course/${courseId}/students`, {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        }).then(res => {
+            res.data.forEach(u => {
+                res.data.pop(u);
+                res.data.push(filterUserProperties(u));
+            });
+            return res.data;
+        }).catch(err => {
+            throw err;
+        });
+    }
 }
 
 let courseService = new CourseService();
