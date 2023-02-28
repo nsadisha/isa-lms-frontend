@@ -53,7 +53,7 @@ function StudentHome() {
                         return <Course course={course} key={course.id} />
                     })}
                     <div className="col-md-12 py-3 justify-content-center d-flex">
-                        <Link to="/">
+                        <Link to="/courses">
                             <button className="gradiant-btn r-50 px-5">View all courses</button>
                         </Link>
                     </div>
