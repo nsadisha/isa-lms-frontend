@@ -33,14 +33,26 @@ class CourseService {
 
     async getAllCourses() {
         return axios.get("/course/all")
-        .then(res => {
-            res.data.forEach(u => {
-                delete u.conductor;
+            .then(res => {
+                res.data.forEach(u => {
+                    delete u.conductor;
+                });
+                return res.data;
+            }).catch(err => {
+                throw err;
             });
-            return res.data;
-        }).catch(err => {
-            throw err;
-        });
+    }
+
+    async search(query="") {
+        return axios.get(`/course/search?query=${query}`)
+            .then(res => {
+                res.data.forEach(u => {
+                    delete u.conductor;
+                });
+                return res.data;
+            }).catch(err => {
+                throw err;
+            });
     }
 }
 
