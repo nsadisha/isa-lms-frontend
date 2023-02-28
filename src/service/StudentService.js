@@ -34,6 +34,18 @@ class StudentService {
             throw err;
         })
     }
+
+    async unenroll(token, courseId) {
+        return axios.post(`/course/unenroll/${courseId}`, {}, {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        }).then(res => {
+            return res.data;
+        }).catch(err => {
+            throw err;
+        })
+    }
 }
 
 const studentService = new StudentService();
