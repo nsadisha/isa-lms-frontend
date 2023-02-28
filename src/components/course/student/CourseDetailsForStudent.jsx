@@ -54,7 +54,6 @@ function CourseDetailsForStudent({ course }) {
 
     function handleUnenrollMe() {
         studentService.unenroll(token, course.id).then(res => {
-            console.log(res);
             setIsEnrolled(false);
         }).catch(err => {
             console.log(err);
