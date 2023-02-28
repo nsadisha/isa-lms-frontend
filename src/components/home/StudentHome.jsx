@@ -38,7 +38,7 @@ function StudentHome() {
                         <div className="col-md-7">
                             <h1>Learn at the comfort of your own home</h1>
                             <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cum quod, odio nisi iure illo suscipit tempora perferendis facere numquam quos excepturi quis dolor voluptatem eligendi sequi nobis commodi minus enim.</p>
-                            <Link to='/dashboard'>
+                            <Link to='/courses'>
                                 <button className="gradiant-btn r-50 px-5">Explore more</button>
                             </Link>
                         </div>
