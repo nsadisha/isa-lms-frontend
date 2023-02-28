@@ -3,7 +3,7 @@ import EmptyState from "../../EmptyState";
 
 function EnrolledCourses({ courses }) {
     function showEmptyMessage() {
-        return <EmptyState message="You don't have any enrolled courses yet." />
+        return (<div className="col-12"><EmptyState message="You don't have any enrolled courses yet." /></div>);
     }
 
     return (

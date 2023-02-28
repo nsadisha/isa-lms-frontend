@@ -3,7 +3,7 @@ import EmptyState from "../../EmptyState";
 
 function ConductingCourses({courses}) {
     function showEmptyMessage() {
-        return <EmptyState message="You don't conduct any courses yet." />
+        return (<div className="col-12"><EmptyState message="You don't conduct any courses yet." /></div>);
     }
 
     return (
