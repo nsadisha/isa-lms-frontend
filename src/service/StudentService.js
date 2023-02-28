@@ -12,6 +12,16 @@ class StudentService {
             throw err;
         });
     }
+
+    async isEnrolledForCourse(token, courseId) {
+        return this.getEnrolledCourses(token)
+            .then(res => {
+                let x = res.find(course => { return course.id === courseId });
+                return x !== undefined;
+            }).catch(err => {
+                throw err;
+            })
+    }
 }
 
 const studentService = new StudentService();
