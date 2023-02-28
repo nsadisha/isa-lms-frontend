@@ -67,7 +67,7 @@ function StudentHome() {
                         return <Course course={course} key={course.id} />
                     })}
                     <div className="col-md-12 py-3 justify-content-center d-flex">
-                        {enrolledCourses.length > 0 && <Link to="/">
+                        {enrolledCourses.length > 0 && <Link to="/dashboard">
                             <button className="gradiant-btn r-50 px-5">View enrolled courses</button>
                         </Link>}
                         {enrolledCourses.length === 0 && <p>
