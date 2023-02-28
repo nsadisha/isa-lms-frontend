@@ -22,6 +22,18 @@ class StudentService {
                 throw err;
             })
     }
+
+    async enroll(token, courseId) {
+        return axios.post(`/course/enroll/${courseId}`, {}, {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        }).then(res => {
+            return res.data;
+        }).catch(err => {
+            throw err;
+        })
+    }
 }
 
 const studentService = new StudentService();
