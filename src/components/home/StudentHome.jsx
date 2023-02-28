@@ -14,7 +14,7 @@ function StudentHome() {
     useEffect(() => {
         courseService.getAllCourses()
         .then(res => {
-            let size = res.length>4 ? res.length - 4 : 4;
+            let size = res.length>4 ? res.length - 4 : 0;
             setLatestCourses(res.slice(size).reverse());
         }).catch(err => {
             console.log(err);
