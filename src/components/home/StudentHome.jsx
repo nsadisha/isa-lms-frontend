@@ -13,21 +13,21 @@ function StudentHome() {
 
     useEffect(() => {
         courseService.getAllCourses()
-        .then(res => {
-            let size = res.length>4 ? res.length - 4 : 0;
-            setLatestCourses(res.slice(size).reverse());
-        }).catch(err => {
-            console.log(err);
-        });
-        
+            .then(res => {
+                let size = res.length > 4 ? res.length - 4 : 0;
+                setLatestCourses(res.slice(size).reverse());
+            }).catch(err => {
+                console.log(err);
+            });
+
         studentService.getEnrolledCourses(token)
-        .then(res => {
-            let size = res.length>4 ? res.length - 4 : 0;
-            setEnrolledCourses(res.slice(size).reverse())
-        }).catch(err => {
-            console.log(err
-            );
-        });
+            .then(res => {
+                let size = res.length > 4 ? res.length - 4 : 0;
+                setEnrolledCourses(res.slice(size).reverse())
+            }).catch(err => {
+                console.log(err
+                );
+            });
     }, [token, setLatestCourses, setEnrolledCourses])
 
     return (
@@ -67,9 +67,12 @@ function StudentHome() {
                         return <Course course={course} key={course.id} />
                     })}
                     <div className="col-md-12 py-3 justify-content-center d-flex">
-                        <Link to="/">
+                        {enrolledCourses.length > 0 && <Link to="/">
                             <button className="gradiant-btn r-50 px-5">View enrolled courses</button>
-                        </Link>
+                        </Link>}
+                        {enrolledCourses.length === 0 && <p>
+                            You don't have any enrolled courses. click <Link to="/courses">here</Link> to explore our courses.
+                        </p>}
                     </div>
                 </div>
             </div>
