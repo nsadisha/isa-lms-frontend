@@ -43,9 +43,15 @@ function AllCourses({ title }) {
             <NavBar isSigned={isSigned} theme="dark" />
             <div className="navbar-height"></div>
 
+            <div className="container-cluid bg-light text-center gradiant-btn py-5">
+                <p className="text-white my-3" style={{fontSize: '1.5rem', fontWeight: '300'}}>
+                    <i>"Online learning is not the next big thing, it is the now big thing.”</i>
+                </p>
+            </div>
+
             <div className="container mt-5">
                 <div className="row justify-content-center">
-                    <form className="col-md-6" onSubmit={handleSearch}>
+                    <form className="col-lg-8 col-xl-6" onSubmit={handleSearch}>
                         <div className="input-group mb-3">
                             <input
                                 type="text"
