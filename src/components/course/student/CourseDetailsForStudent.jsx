@@ -68,7 +68,7 @@ function CourseDetailsForStudent({ course }) {
                     <h2 className="mb-4">{course.course_code} - {course.name}</h2>
                     <NavItemGroup>
                         <NavItem title="Activities" target="#nav-activities" active="true" />
-                        <NavItem title="Participants" target="#nav-participants" />
+                        {isEnrolled && <NavItem title="Participants" target="#nav-participants" />}
                         <NavItem title="Details" target="#nav-details" />
                         {isEnrolled && <NavDropdownItem title="More">
                             <li onClick={handleUnenrollMe} role="button">
