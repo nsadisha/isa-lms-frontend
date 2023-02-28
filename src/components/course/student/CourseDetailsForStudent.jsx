@@ -71,10 +71,7 @@ function CourseDetailsForStudent({ course }) {
                         <NavItem title="Participants" target="#nav-participants" />
                         <NavItem title="Details" target="#nav-details" />
                         {isEnrolled && <NavDropdownItem title="More">
-                            <li
-                                onClick={handleUnenrollMe}
-                                style={{cursor: 'pointer'}}
-                            >
+                            <li onClick={handleUnenrollMe} role="button">
                                 <p className="dropdown-item text-danger mb-0 cursor-pointer">Unenroll me from this course</p>
                             </li>
                         </NavDropdownItem>}
