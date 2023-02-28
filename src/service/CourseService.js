@@ -22,8 +22,8 @@ class CourseService {
             }
         }).then(res => {
             res.data.forEach(u => {
-                res.data.pop(u);
                 res.data.push(filterUserProperties(u));
+                res.data.pop(u);
             });
             return res.data;
         }).catch(err => {
