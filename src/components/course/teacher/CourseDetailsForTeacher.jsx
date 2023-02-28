@@ -5,9 +5,9 @@ import NavItem from "../../nav/NavItem";
 import NavItemGroup from "../../nav/NavItemGroup";
 import NavPane from "../../nav/NavPane";
 import NavPaneGroup from "../../nav/NavPaneGroup";
-import Activities from "./Activities";
-import Details from "./Details";
-import Participants from "./Participants";
+import Activities from "../Activities";
+import Details from "../Details";
+import Participants from "../Participants";
 
 function CourseDetailsForTeacher({ course }) {
     const token = localStorageService.getToken();
