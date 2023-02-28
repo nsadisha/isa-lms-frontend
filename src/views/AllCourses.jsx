@@ -3,9 +3,11 @@ import { useSearchParams } from "react-router-dom";
 import Course from "../components/Course";
 import NavBar from "../components/NavBar";
 import courseService from "../service/CourseService";
+import localStorageService from "../service/LocalStorageService";
 
 function AllCourses({ title }) {
-    const [params, setParams] = useSearchParams()
+    const isSigned = localStorageService.isSigned();
+    const [params, setParams] = useSearchParams();
     const [query, setQuery] = useState("");
     const [isSearched, setIsSearched] = useState(false);
     const [courses, setCourses] = useState([]);
@@ -38,8 +40,9 @@ function AllCourses({ title }) {
 
     return (
         <>
-            <NavBar theme="dark" />
+            <NavBar isSigned={isSigned} theme="dark" />
             <div className="navbar-height"></div>
+
             <div className="container mt-5">
                 <div className="row justify-content-center">
                     <form className="col-md-6" onSubmit={handleSearch}>
