@@ -2,6 +2,7 @@ import studentService from "../../../service/StudentService";
 import localStorageService from "../../../service/LocalStorageService";
 import { useState } from "react";
 import { useEffect } from "react";
+import Toast from "../../Toast";
 import NavItem from "../../nav/NavItem";
 import NavItemGroup from "../../nav/NavItemGroup";
 import NavPane from "../../nav/NavPane";
@@ -14,6 +15,8 @@ import courseService from "../../../service/CourseService";
 
 function CourseDetailsForStudent({ course }) {
     const token = localStorageService.getToken();
+    const [showToast, setShowToast] = useState('false');
+    const [toastMessage, setToastMessage] = useState("");
     const [isEnrolled, setIsEnrolled] = useState(false);
     const [participants, setParticipants] = useState([]);
 
@@ -47,14 +50,18 @@ function CourseDetailsForStudent({ course }) {
     function handleEnrollMe() {
         studentService.enroll(token, course.id).then(res => {
             setIsEnrolled(true);
+            setToastMessage("You have successfully enrolled for this course.");
+            setShowToast('true');
         }).catch(err => {
             console.log(err);
         });
     }
-
+    
     function handleUnenrollMe() {
         studentService.unenroll(token, course.id).then(res => {
             setIsEnrolled(false);
+            setToastMessage("You have successfully unenrolled from this course.");
+            setShowToast('true');
         }).catch(err => {
             console.log(err);
         });
@@ -90,6 +97,11 @@ function CourseDetailsForStudent({ course }) {
                     </NavPaneGroup>
                 </div>
             </div>
+
+            <Toast
+                message={toastMessage}
+                show={showToast}
+                onDismissed={() => { setShowToast('false') }} />
         </div>
     );
 }
