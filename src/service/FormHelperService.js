@@ -8,3 +8,14 @@ export function createDataObjectForm(form) {
         role: form.role.value
     };
 }
+
+export function filterUserProperties(user) {
+    let newUser = {...user};
+    delete newUser.authorities
+    delete newUser.enabled
+    delete newUser.accountNonExpired
+    delete newUser.accountNonLocked
+    delete newUser.credentialsNonExpired
+
+    return newUser;
+}

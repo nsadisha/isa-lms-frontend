@@ -8,12 +8,14 @@ import Alert from "../components/Alert";
 import TeacherHome from "../components/home/TeacherHome";
 import ManagementHome from "../components/home/ManagementHome";
 import AnnonymousHome from "../components/home/AnnonymousHome";
+import { useNavigate } from "react-router-dom";
 
 function Home({ title }) {
     const isSigned = localStorageService.isSigned()
     const isFirstTimeAfterSigned = localStorageService.getIsFirstTime();
     const role = localStorageService.getRole();
     const [userData, setUserData] = useState({});
+    const navigate = useNavigate();
 
     useEffect(() => {
         if (isSigned) {
@@ -23,10 +25,13 @@ function Home({ title }) {
                     setUserData(data);
                 }).catch(err => {
                     console.log(err);
+                    //if any error
+                    localStorageService.clearAll();
+                    navigate('/login')
                 })
         }
         document.title = title;
-    }, [isSigned, title])
+    }, [isSigned, title, navigate])
 
     function getUserHome(role) {
         if (role === "MANAGEMENT_STAFF") {

@@ -1,22 +1,23 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-// import authService from "../service/AuthService";
+import authService from "../service/AuthService";
 import localStorageService from "../service/LocalStorageService";
 
 function Logout({ title }) {
     const navigate = useNavigate();
+    const token = localStorageService.getToken();
+
     useEffect(() => {
-        //TODO: fix logout endpoint
-        // authService.logout().then(res => {
-        //     console.log("logged out");
-        //     console.log(res);
-        // }).catch(err => {
-        //     console.log(err.response.data);
-        // })
-        localStorageService.clearAll();
         document.title = title;
-        navigate('/')
-    }, [title, navigate])
+
+        authService.logout(token).then(res => {
+            localStorageService.clearAll();
+            navigate('/')
+        }).catch(err => {
+            console.log(err.response.data);
+        })
+
+    }, [title, token, navigate])
 
     return (
         <div className="container vh-100 d-grid align-items-center text-center">

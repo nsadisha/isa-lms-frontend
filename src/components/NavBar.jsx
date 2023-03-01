@@ -30,6 +30,9 @@ function NavBar({ isSigned, theme }) {
                                 <Link className="nav-link" to='/dashboard'>Dashboard</Link>
                             </li>
                         }
+                        <li className="nav-item">
+                            <Link className="nav-link" to='/courses'>Courses</Link>
+                        </li>
                         {!isSigned &&
                             <li className="nav-item">
                                 <Link className="nav-link" to='/login'>Login</Link>
