@@ -1,9 +1,11 @@
+import Details from "./Details";
+
 function CourseDetailsForUnauthenticated({ course }) {
     return (
         <div className="container">
             <div className="row">
                 <div className="col-md-12">
-                    For everyone
+                    <Details course={course} />
                 </div>
             </div>
         </div>

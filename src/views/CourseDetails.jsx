@@ -10,7 +10,6 @@ import courseService from "../service/CourseService";
 import localStorageService from "../service/LocalStorageService";
 
 function CourseDetails() {
-    const token = localStorageService.getToken();
     const isSigned = localStorageService.isSigned();
     const role = localStorageService.getRole();
     const [course, setCourse] = useState({})
@@ -19,7 +18,7 @@ function CourseDetails() {
     const [errorMessage, setErrorMessage] = useState("");
 
     useEffect(() => {
-        courseService.getCourseDetails(token, courseId)
+        courseService.getCourseDetails(courseId)
             .then(res => {
                 setCourse(res)
                 document.title = res.name
@@ -27,7 +26,7 @@ function CourseDetails() {
                 setIsError(true);
                 setErrorMessage(err.response.data.message);
             })
-    }, [token, courseId]);
+    }, [courseId]);
 
     function getCourseDetailsView(role) {
         if (role === "MANAGEMENT_STAFF") {
