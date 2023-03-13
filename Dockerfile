@@ -6,6 +6,7 @@ WORKDIR /app
 COPY . .
 
 # BUILD
+RUN npm install -g npm@9.6.1
 RUN npm ci
 
 RUN npm run build
